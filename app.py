@@ -5,13 +5,26 @@ from telebot.types import (
     KeyboardButton,
     ReplyKeyboardMarkup,
 )
-
+from flask import Flask, request, abort
 import config
 import keyboards
 from models import models
 from keyboards import ReplyKB
 
 bot = telebot.TeleBot(config.TOKEN)
+app = Flask(__name__)
+
+# Process webhook calls
+@app.route(WEBHOOK_URL_PATH, methods=['POST'])
+def webhook():
+    if request.headers.get('content-type') == 'application/json':
+        json_string = request.get_data().decode('utf-8')
+        update = telebot.types.Update.de_json(json_string)
+        bot.process_new_updates([update])
+        return ''
+    else:
+        abort(403)
+
 
 
 @bot.message_handler(commands=['start'])
@@ -191,9 +204,12 @@ def go_back(call):
 
 
 if __name__ == '__main__':
-    bot.polling(none_stop=True)
+    # bot.polling(none_stop=True)
     # app.run()
-
+    import time
+    bot.remove_webhook()
+    time.sleep(1)
+    bot.set_webhook(config.webhook_url)
 
 
 
