@@ -67,21 +67,24 @@ class Product(Document):
         return cls.objects(is_discount=True, **kwargs)
 
 
-# class User(Document):
-#     Username = StringField(),
-#     Mobile = StringField()
-
-# class Cart(Document):
-#     user = ReferenceField(User)
-#     product = ReferenceField(Product)
 
 
-# Product(title='phone', description='You can call' ,price=100, new_price=200).save()
-# Category(title = 'mobile', description = 'Some', subcategory =['Cat1']).save()
 
-# o = Category.objects()
-# for i in o:
-#     print(i.title)
+
+
+
+
+
+class User(Document):
+    id_user = StringField()
+    first_name = StringField()
+    username = StringField()
+    last_name = StringField()
+
+
+class Cart(Document):
+    user = ReferenceField(User)
+    product = ReferenceField(Product)
 
 # Category.objects.update(is_root=True)
 # list_of_catteg = [i.title for i in Category.objects()]
