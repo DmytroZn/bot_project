@@ -27,8 +27,12 @@ connect('web_shop_bot')
 
 ###################################3
 
-prod1 = models.Product(**{'title': 'Meizu',
-                        'description': 'You can call',
-                        'price': 300,
-                        'category': '5dcaf2ac3db8e6530cc686ec'
-                       }).save()
+# prod1 = models.Product(**{'title': 'Meizu',
+#                         'description': 'You can call',
+#                         'price': 300,
+#                         'category': '5dcaf2ac3db8e6530cc686ec'
+#                        }).save()
+
+n = models.Category.objects(title='root 1').update(title='Phonies')
+n = models.Category.objects(title='sub 1').update(title='Apple')
+n = models.Category.objects(title='sub-sub 1').update(title='Apple')
