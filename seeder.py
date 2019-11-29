@@ -35,11 +35,23 @@ connect('web_shop_bot')
 
 # n = models.Category.objects(title='root 1').update(title='Phonies')
 # n = models.Category.objects(title='sub 1').update(title='Apple')
-n = models.Category.objects(title='Apple2').first().update(title='Apple3')
-n = models.Category.objects(title='Apple2').first().update(title='Apple4')
-n = models.Category.objects(title='Apple2').first().update(title='Apple5')
-n = models.Category.objects(title='Apple2').first().update(title='Apple6')
+# n = models.Category.objects(title='Apple2').first().update(title='Apple3')
+# n = models.Category.objects(title='Apple2').first().update(title='Apple4')
+# n = models.Category.objects(title='Apple2').first().update(title='Apple5')
+# n = models.Category.objects(title='Apple2').first().update(title='Apple6')
 # n = models.Category.objects(title='Apple').first().update(title='Apple2')
 # n = models.Category.objects(title='Apple').first().update(title='Apple3')
 # n = models.Category.objects(title='Apple').first().update(title='Apple4')
 
+n = models.Category.objects(title='Apple4').first()
+prod1 = models.Product(**{'title': 'iPhone 11',
+                        'description': 'Apple iPhone 11 64Gb Black',
+                        'price': 300,
+                        'category': n,
+                        # 'photo': None
+                       }).save()
+
+open_cart = open('photos/iPhone_11.webp', 'rb')
+prod1 = models.Product.objects(title='iPhone 11').first()
+prod1.photo.put(open_cart, content_type='iPhone_7/webp')
+prod1.save()
