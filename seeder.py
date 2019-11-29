@@ -35,5 +35,5 @@ connect('web_shop_bot')
 
 n = models.Category.objects(title='root 1').update(title='Phonies')
 n = models.Category.objects(title='sub 1').update(title='Apple')
-n = models.Category.objects(title='sub-sub 1').update(title='Apple')
+n = models.Category.objects(title='sub-sub Category object').update(title='Apple')
 
