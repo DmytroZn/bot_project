@@ -1,5 +1,7 @@
 from mongoengine import *
 
+
+
 connect('web_shop_bot')
 
 
@@ -55,23 +57,31 @@ class Product(Document):
     is_discount = BooleanField(default=False)
     properties = EmbeddedDocumentField(Properties)
     category = ReferenceField(Category)
+    photo = FileField()
 
     @property
     def get_price(self):
         if self.is_discount:
-            return str(self.new_price / 100)
-        return str(self.price / 100)
+            return self.new_price / 100
+        return self.price / 100
 
+    @property
+    def get_price_str(self):
+        if self.is_discount:
+            return str(self.new_price / 100)
+        return str(self.price / 100)   
+
+    def get_suum_of_prices(self, list_of_price):
+        self.c = 0
+        for i in self.list_of_price:
+            self.c += i
+        return self.c / 100
+    
+
+    
     @classmethod
     def get_discount_products(cls):
         return cls.objects(is_discount=True, **kwargs)
-
-
-
-
-
-
-
 
 
 
@@ -84,12 +94,20 @@ class User(Document):
 
 class Cart(Document):
     user = ReferenceField(User)
-    product = ReferenceField(Product)
+    products = ListField(ReferenceField(Product))
+    active = BooleanField(default=True)
+    date_time = DateTimeField()
+   
+
 
 # Category.objects.update(is_root=True)
 # list_of_catteg = [i.title for i in Category.objects()]
 
 
+class Testing(Document):
+    name = StringField()
+    last_name = StringField()
+    list_of = ListField(ReferenceField(Product))
 
 
 
