@@ -11,9 +11,8 @@ class ProductResource(Resource):
         if not id:
             objects = Product.objects
             return ProductSchema().dump(objects, many=True)
-
-        # return ProductSchema().dump(Product.objects(id=id).get())
-        return jsonify(**{'method': 'get'})
+        
+        return ProductSchema().dump(Product.objects(id=id).get())
         
 
         # return jsonify(**{'method': 'get'})
