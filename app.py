@@ -15,6 +15,21 @@ from keyboards import ReplyKB
 bot = telebot.TeleBot(config.TOKEN)
 app = Flask(__name__)
 
+#
+from flask import Flask, request, Response
+# from models.workers import Person
+# from schemes.workers_schema import PersonSchema
+from flask_restful import Api
+from resources.product_resources import ProductResource
+
+api = Api(app)
+
+api.add_resource(ProductResource, '/product', '/product/<string:id>')
+#
+
+
+
+
 # Process webhook calls
 @app.route('/', methods=['POST'])  #config.handle_url
 def webhook():
