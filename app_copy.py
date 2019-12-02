@@ -57,4 +57,4 @@ api.add_resource(ProductResource, '/product', '/product/<string:id>')
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(port=2332, debug=True)
