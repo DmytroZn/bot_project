@@ -34,9 +34,9 @@ from flask_restful import Api
 from resources.product_resources import ProductResource
 app = Flask(__name__)
 api = Api(app)
-
+print('work1')
 api.add_resource(ProductResource, '/product', '/product/<string:id>')
-
+print('work2')
 
 
 
