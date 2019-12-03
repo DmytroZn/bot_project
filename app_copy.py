@@ -58,4 +58,4 @@ api.add_resource(CategoryResource, '/category', '/category/<string:id>')
 
 
 if __name__ == '__main__':
-    app.run(port=5001, debug=True)
+    app_copy.run(port=5001, debug=True)
