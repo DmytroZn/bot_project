@@ -12,11 +12,18 @@ import datetime
 from models import models
 from keyboards import ReplyKB
 
+from flask_restful import Api
+from resources.product_resources
+
+
+
 bot = telebot.TeleBot(config.TOKEN)
 app = Flask(__name__)
+api = Api(app)
 
 
-
+api.add_resource(ProductResource, '/product/', '/product/<string:id>')
+api.add_resource(CategoryResource, '/category/', '/category/<string:id>')
 
 
 # Process webhook calls
