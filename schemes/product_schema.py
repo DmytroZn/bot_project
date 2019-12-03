@@ -2,7 +2,7 @@ from marshmallow import (
     fields, Schema, 
     validates, ValidationError
 )
-
+from models import *
 
 
 # class LocationSchema(Schema):
@@ -24,8 +24,24 @@ from marshmallow import (
 #         if value > 65:
 #             raise ValidationError('The age must be less than 65')
 
-class PropertiesSchema(Schema): # не важные характеристикаи , ссылка
+class TextsSchema(Schema):
+    title = fields.String(unique=True)
+    body = fields.String(max_lenght=4096)
+
+
+class PropertiesSchema(Schema): 
     weight = fields.Float()
+
+
+class CategorySchema(Schema):
+    id = fields.String()
+    title = fields.String()
+    description = fields.String()
+    subcategory = fields.List(fields.Nested('self'), load_only=True)
+    # subcategory = ListField(ReferenceField('self'))
+    # parent = ReferenceField('self')
+    parent = fields.Nested('self')
+
 
 class ProductSchema(Schema):
     id = fields.String()
@@ -35,5 +51,25 @@ class ProductSchema(Schema):
     new_price = fields.Integer()
     is_discount = fields.Boolean()
     properties = fields.Nested(PropertiesSchema)
-    category = fields.String() #load_only=True
+    # category = fields.Nested(models.Category.objects().get()) #load_only=True
     # photo = FileField()
+    category = fields.Nested(CategorySchema)
+    # category = fields.String()
+
+    
+
+# class ProductSchemaWrite(Schema):
+#     id = fields.String()
+#     title = fields.String()
+#     description = fields.String()
+#     price = fields.Integer()
+#     new_price = fields.Integer()
+#     is_discount = fields.Boolean()
+#     properties = fields.Nested(PropertiesSchema)
+#     # category = fields.Nested(models.Category.objects().get()) #load_only=True
+#     # photo = FileField()
+#     category = fields.Nested(models.Category.objects().get())
+
+
+
+

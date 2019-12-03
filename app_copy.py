@@ -31,12 +31,13 @@ from flask import Flask, request, Response
 # from models.workers import Person
 # from schemes.workers_schema import PersonSchema
 from flask_restful import Api
-from resources.product_resources import ProductResource
+from resources.product_resources import *  #ProductResource
 app = Flask(__name__)
 api = Api(app)
-print('work1')
+
 api.add_resource(ProductResource, '/product', '/product/<string:id>')
-print('work2')
+api.add_resource(CategoryResource, '/category', '/category/<string:id>')
+
 
 
 
@@ -57,4 +58,4 @@ print('work2')
 
 
 if __name__ == '__main__':
-    app.run(port=1414, debug=True)
+    app.run(port=5001, debug=True)
