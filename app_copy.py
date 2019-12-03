@@ -32,6 +32,7 @@ from flask import Flask, request, Response
 # from schemes.workers_schema import PersonSchema
 from flask_restful import Api
 from resources.product_resources import *  #ProductResource
+import config
 app = Flask(__name__)
 api = Api(app)
 
