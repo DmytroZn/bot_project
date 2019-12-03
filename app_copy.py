@@ -32,8 +32,8 @@ from flask import Flask, request, Response
 # from schemes.workers_schema import PersonSchema
 from flask_restful import Api
 from resources.product_resources import *  #ProductResource
-app = Flask(__name__)
-api = Api(app)
+app_copy = Flask(__name__)
+api = Api(app_copy)
 
 api.add_resource(ProductResource, '/product', '/product/<string:id>')
 api.add_resource(CategoryResource, '/category', '/category/<string:id>')
