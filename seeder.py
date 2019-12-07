@@ -317,16 +317,16 @@ connect('web_shop_bot')
 
 
 
-air = models.Category.objects(title='Acoustics').first()
+# air = models.Category.objects(title='Acoustics').first()
 
-prod1 = models.Product(**{'title': 'Portable speaker',
-                        'description': 'Portable speaker AIR MUSIC FLIP Orange',
-                        'price': 4700,
-                        'category': air,
-                        # 'photo': None
-                       }).save()
+# prod1 = models.Product(**{'title': 'Portable speaker',
+#                         'description': 'Portable speaker AIR MUSIC FLIP Orange',
+#                         'price': 4700,
+#                         'category': air,
+#                         # 'photo': None
+#                        }).save()
 
-open_cart = open('photos/Portable_speaker.webp', 'rb')
-prod1 = models.Product.objects(title='Portable speaker').first()
-prod1.photo.put(open_cart, content_type='Portable_speaker/webp')
-prod1.save()
+# open_cart = open('photos/Portable_speaker.webp', 'rb')
+# prod1 = models.Product.objects(title='Portable speaker').first()
+# prod1.photo.put(open_cart, content_type='Portable_speaker/webp')
+# prod1.save()

@@ -5,9 +5,9 @@ beginning_kb = {
     'products' : 'Products',
     'sales' : 'Product for sales',
     'about' : 'Information about shop',
-     'cart' : 'My cart'
+    'cart' : 'My cart',
+    'history' : 'Shopping history'
 }
-
 
 from telebot.types import (
     ReplyKeyboardMarkup, 

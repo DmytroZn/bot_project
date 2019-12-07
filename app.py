@@ -105,57 +105,23 @@ def say_cart(message):
     
 
 
-# @bot.callback_query_handler(func=lambda call: call.data == 'testing')
-# def sow(call):
-
-
-    # cart = models.Testing(**{'name': 'Dima', 'last_name':'Znak'}).save()
-    # bot.send_message(call.message.chat.id, 'content_type')
-    # cart1 = models.Testing.objects(name='Dima').first()
-    # prod = models.Product.objects(id='5dce8ea5ca40d8eacf00224d').first()
-    # # cart1.update(push__list_of=prod)
-    # print('good')
-    # cart2 = models.Testing.objects(name='Dima').first()
-    # print([i.title for i in cart2.list_of])
-    # print(cart2.list_of.title)
-
-    # prod = models.Product.objects()
-#     prod = models.Product.objects(category='5dcfe1badcd794512cc89b03').all()
-    
-    # inline_one = InlineKeyboardMarkup()
-    # b = InlineKeyboardButton(text='sdf', callback_data='sss')
-    # inline_one.add(b)
-#     in1 = [InlineKeyboardButton(text=f'{i.title}\t', callback_data=f'{i.id}_prodgood') for i in prod]
-#     l = InlineKeyboardButton(text='cart', callback_data='cart')
-#     inline_one.add(*in1)
-#     inline_one.add(l)
-    # bot.send_photo(call.message.chat.id, 'https://images8.alphacoders.com/953/thumb-1920-953503.jpg', caption='po')
-    # bot.send_location(call.message.chat.id, latitude=50.458136, longitude=30.512276)
-    # bot.SuccessfulPayment(currency='USD', total_amount=145, invoice_payload='yy', 
-    #                             telegram_payment_charge_id='sdf', provider_payment_charge_id='gg')
-    # bot.edit_message_text(text='test\n test2', chat_id=call.message.chat.id,
-    #                             message_id=call.message.message_id)
-    # bot.edit_message_media('https://images8.alphacoders.com/953/thumb-1920-953503.jpg', chat_id=call.message.chat.id,
-    #           message_id=call.message.message_id)
-    # editMessageMedia
-    # bot.edit_message_caption(caption='category.title', chat_id=call.message.chat.id,
-    #                         message_id=call.message.message_id)
-
-    # bot.delete_message(chat_id=call.message.chat.id,
-    #                         message_id=call.message.message_id)
-    # g = models.Product.objects(title='Cartoon').first()
-    # photo = g.photo.read()
-    # content_type = g.photo.content_type
-
-
-    # bot.send_photo(call.message.chat.id, photo, caption='po')
-    # bot.send_message(call.message.chat.id, content_type, reply_markup=inline_one)
-  
-# @bot.callback_query_handler(func=lambda call: call.data.split('_')[1] == 'prodgood')
-# def soe2(call):
-#     a = call.data.split('_')[0]
-#     bot.edit_message_text(text='new', chat_id=call.message.chat.id,
-#                                 message_id=call.message.message_id)
+@bot.message_handler(func=lambda message: message.text == keyboards.beginning_kb['history'])
+def say_history(message):
+    dict_of_user = message.from_user
+    user_id = models.User.objects(id_user=str(dict_of_user.id)).first()
+    cat = models.Cart.objects(user=user_id.id, active=False).all()
+    bot.send_message(message.chat.id, text='You bought')
+    if cat:
+        for k in cat:
+            d = k.date_time
+            date = str(d).split(' ')[1].split(':')
+            all_date = f'{str(d).split(" ")[0]} {date[0]}:{date[1]}'
+            p = [i.title for i in k.products]  
+            text = f'''{all_date} \n {', '.join(p)}'''
+            print(text)
+            bot.send_message(message.chat.id, text=text)
+    else:
+        bot.send_message(message.chat.id, text='Your history is empty') 
    
 
 @bot.message_handler(func=lambda message: message.text == keyboards.beginning_kb['products'])
