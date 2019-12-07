@@ -129,7 +129,8 @@ i = models.Category.objects.all()
 for k in i:
     print(k.title)
 
-models.Category.objects(title='Wireless earphones').all().delete()
+models.Category.objects(title='Earphones').all().delete()
+models.Category.objects(title='Acoustics').all().delete()
 
 i = models.Category.objects.all()
 for k in i:
