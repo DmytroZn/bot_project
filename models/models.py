@@ -49,6 +49,15 @@ class Category(Document):
         self.save()
 
 
+# def ref(value=None):
+#     if value != None:
+#         obj = Category.objects(id=value).first()
+#         return obj.id
+#     else:
+#         return Category
+
+
+
 class Product(Document):
     title = StringField(max_lenght=255)
     description = StringField(max_lenght=1024)
@@ -59,11 +68,15 @@ class Product(Document):
     category = ReferenceField(Category)
     photo = FileField()
 
+
+
+
+
     @property
     def get_price(self):
         if self.is_discount:
-            return self.new_price / 100
-        return self.price / 100
+            return self.new_price
+        return self.price
 
     @property
     def get_price_str(self):
@@ -71,11 +84,11 @@ class Product(Document):
             return str(self.new_price / 100)
         return str(self.price / 100)   
 
-    def get_suum_of_prices(self, list_of_price):
-        self.c = 0
-        for i in self.list_of_price:
-            self.c += i
-        return self.c / 100
+def get_suum_of_prices(list_of_price):
+    c = 0
+    for i in list_of_price:
+        c += i
+    return c / 100
     
 
     

@@ -37,7 +37,6 @@ def webhook():
     else:
         abort(403)
 
-
 @bot.message_handler(commands=['start'])
 def start(message):
   
@@ -294,13 +293,12 @@ def look_my_cart(call):
     except (ValueError, IndexError): #, AttributeError):
         pass
     
-    print('get')
-    # list_of_price = [i.products.get_price for i in cart_user]
-    # amount = (models.get_suum_of_prices(list_of_price)) / 100                                         
-    print('end')
+    list_of_price = [i.get_price for i in cart_user.products]
+    print(list_of_price)
+    amount = (models.get_suum_of_prices(list_of_price))                                       
     keyboard = InlineKeyboardMarkup(row_width=2)
     back = InlineKeyboardButton(text='<< back', callback_data=f'category_{call.data.split("_")[1]}_{None}')
-    buy = InlineKeyboardButton(text=f'buy {"amount"} USD', callback_data=f'buy_{call.data.split("_")[1]}')
+    buy = InlineKeyboardButton(text=f'pay {amount} USD', callback_data=f'buy_{call.data.split("_")[1]}')
     print([i for i in cart_user.products])
     prod_from_cart = [InlineKeyboardButton(text=f'{i.title} delete', callback_data=f'look my cart_{call.data.split("_")[1]}_{i.id}') for i in cart_user.products]
     if len(prod_from_cart) == 0:
