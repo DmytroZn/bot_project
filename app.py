@@ -69,12 +69,12 @@ def start(message):
 def say_news(message):
     # prod = models.Product.objects(category='5dcfe1badcd794512cc89b03')
 
-    inlin = InlineKeyboardMarkup()
-    in1 = InlineKeyboardButton(text='test1', callback_data='testing')
-    inlin.add(in1)
-    bot.send_photo(message.chat.id, 'https://images8.alphacoders.com/953/thumb-1920-953503.jpg', caption='po', reply_markup=inlin)
+    # inlin = InlineKeyboardMarkup()
+    # in1 = InlineKeyboardButton(text='test1', callback_data='testing')
+    # inlin.add(in1)
+    # bot.send_photo(message.chat.id, 'https://images8.alphacoders.com/953/thumb-1920-953503.jpg', caption='po', reply_markup=inlin)
 
-    # bot.send_message(message.chat.id, 'We created this bot 23.11.2019', reply_markup=inlin)
+    bot.send_message(message.chat.id, 'We created this bot 23.11.2019', reply_markup=inlin)
 
 
 @bot.message_handler(func=lambda message: message.text == keyboards.beginning_kb['sales'])
@@ -110,13 +110,13 @@ def sow(call):
 
 
     # cart = models.Testing(**{'name': 'Dima', 'last_name':'Znak'}).save()
-    bot.send_message(call.message.chat.id, 'content_type')
-    cart1 = models.Testing.objects(name='Dima').first()
-    prod = models.Product.objects(id='5dce8ea5ca40d8eacf00224d').first()
-    # cart1.update(push__list_of=prod)
-    print('good')
-    cart2 = models.Testing.objects(name='Dima').first()
-    print([i.title for i in cart2.list_of])
+    # bot.send_message(call.message.chat.id, 'content_type')
+    # cart1 = models.Testing.objects(name='Dima').first()
+    # prod = models.Product.objects(id='5dce8ea5ca40d8eacf00224d').first()
+    # # cart1.update(push__list_of=prod)
+    # print('good')
+    # cart2 = models.Testing.objects(name='Dima').first()
+    # print([i.title for i in cart2.list_of])
     # print(cart2.list_of.title)
 
     # prod = models.Product.objects()
