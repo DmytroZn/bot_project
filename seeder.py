@@ -94,13 +94,26 @@ connect('web_shop_bot')
 
 
 
-obj2 = models.Category(**{'title': 'Audio', 'description': 'there are Accessories for phones'}).save()
+# obj2 = models.Category(**{'title': 'Audio', 'description': 'there are Accessories for phones'}).save()
 
-obj2.add_subcategory(
-        models.Category(**{'title': 'Earphones',
-                            'description': 'there are earphones'}))
+# obj2.add_subcategory(
+#         models.Category(**{'title': 'Earphones',
+#                             'description': 'there are earphones'}))
                 
-obj2.add_subcategory(
-        models.Category(**{'title': 'Acoustics',
-                            'description': 'there are Acoustics'}))
+# obj2.add_subcategory(
+#         models.Category(**{'title': 'Acoustics',
+#                             'description': 'there are Acoustics'}))
 
+
+n = models.Category.objects(title='Apple').first()
+prod1 = models.Product(**{'title': 'iPhone 11',
+                        'description': 'Apple iPhone 11 64Gb Black',
+                        'price': 300,
+                        'category': n,
+                        # 'photo': None
+                       }).save()
+
+open_cart = open('photos/iPhone_11.webp', 'rb')
+prod1 = models.Product.objects(title='iPhone 11').first()
+prod1.photo.put(open_cart, content_type='iPhone_7/webp')
+prod1.save()
