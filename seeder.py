@@ -217,7 +217,7 @@ connect('web_shop_bot')
 #
 
 
-
+models.Product.objects(title='Samsung Galaxy A50').all().delete()
 
 
 #
