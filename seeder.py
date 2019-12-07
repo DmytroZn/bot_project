@@ -68,20 +68,22 @@ connect('web_shop_bot')
 #     obj = models.Category(**{'title':f'root {i}',
 #                         'description':f'descr {i}'}).save()
 
-obj1 = models.Category(**{'title': 'Mobile phones', 'description': 'there are mobile phones'}).save()
+# obj1 = models.Category(**{'title': 'Mobile phones', 'description': 'there are mobile phones'}).save()
 
-obj1.add_subcategory(
-        models.Category(**{'title': 'Apple',
-                            'description': 'there are iPhone'}))
+# obj1.add_subcategory(
+#         models.Category(**{'title': 'Apple',
+#                             'description': 'there are iPhone'}))
                 
-obj1.add_subcategory(
-        models.Category(**{'title': 'Meizu',
-                            'description': 'there are Meizu'}))
+# obj1.add_subcategory(
+#         models.Category(**{'title': 'Meizu',
+#                             'description': 'there are Meizu'}))
                             
-obj1.add_subcategory(
-        models.Category(**{'title': 'Xiaomi',
-                            'description': 'there are Xiaomi'}))    
+# obj1.add_subcategory(
+#         models.Category(**{'title': 'Xiaomi',
+#                             'description': 'there are Xiaomi'}))    
                                  
-obj1.add_subcategory(
-        models.Category(**{'title': 'Samsung',
-                            'description': 'there are Samsung'}))        
+# obj1.add_subcategory(
+#         models.Category(**{'title': 'Samsung',
+#                             'description': 'there are Samsung'}))        
+
+o = models.Category.objects(title='root0').delete()
