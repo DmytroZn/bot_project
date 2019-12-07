@@ -233,7 +233,7 @@ def show_prod(call):
 
     bot.delete_message(chat_id=call.message.chat.id,
                             message_id=call.message.message_id)
-    text = f"""<b>{product.title}</b>\n {product.description} \n {product.get_price} USD \n """
+    text = f"""<b>{product.title}</b>\n {product.description} \n {product.get_price_str} USD \n """
     photo = product.photo.read()
     bot.send_photo(call.message.chat.id, photo, caption=text, parse_mode='HTML', reply_markup=keyboard)
 
