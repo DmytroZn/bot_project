@@ -126,7 +126,8 @@ connect('web_shop_bot')
 #                             'description': 'there are Wireless earphones'}))
 
 i = models.Category.objects.all()
-print(i)
+for k in i:
+    print(k.title)
 
 
 
