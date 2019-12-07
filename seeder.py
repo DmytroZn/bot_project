@@ -217,64 +217,82 @@ connect('web_shop_bot')
 #
 
 
-models.Product.objects(title='Samsung Galaxy A50').all().delete()
-
-
 #
 
-s = models.Category.objects(title='Samsung').first()
-prod1 = models.Product(**{'title': 'Samsung Galaxy A50',
-                        'description': 'Samsung Galaxy A50 2019 64Gb White',
-                        'price': 45865,
-                        'category': s,
-                        # 'photo': None
-                       }).save()
+# s = models.Category.objects(title='Samsung').first()
+# prod1 = models.Product(**{'title': 'Samsung Galaxy A50',
+#                         'description': 'Samsung Galaxy A50 2019 64Gb White',
+#                         'price': 45865,
+#                         'category': s,
+#                         # 'photo': None
+#                        }).save()
 
-open_cart = open('photos/Samsung_Galaxy_A50.webp', 'rb')
-prod1 = models.Product.objects(title='Samsung Galaxy A50').first()
-prod1.photo.put(open_cart, content_type='Samsung_Galaxy_A50/webp')
-prod1.save()
+# open_cart = open('photos/Samsung_Galaxy_A50.webp', 'rb')
+# prod1 = models.Product.objects(title='Samsung Galaxy A50').first()
+# prod1.photo.put(open_cart, content_type='Samsung_Galaxy_A50/webp')
+# prod1.save()
 
-#
+# #
 
-prod1 = models.Product(**{'title': 'Samsung Galaxy Note 10 Plus',
-                        'description': 'Samsung Galaxy Note 10 Plus 2019 256Gb Aura Black',
-                        'price': 45000,
-                        'category': s,
-                        # 'photo': None
-                       }).save()
+# prod1 = models.Product(**{'title': 'Samsung Galaxy Note 10 Plus',
+#                         'description': 'Samsung Galaxy Note 10 Plus 2019 256Gb Aura Black',
+#                         'price': 45000,
+#                         'category': s,
+#                         # 'photo': None
+#                        }).save()
 
-open_cart = open('photos/Samsung_Galaxy_Note_10_Plus.webp', 'rb')
-prod1 = models.Product.objects(title='Samsung Galaxy Note 10 Plus').first()
-prod1.photo.put(open_cart, content_type='Samsung_Galaxy_Note_10_Plus/webp')
-prod1.save()
+# open_cart = open('photos/Samsung_Galaxy_Note_10_Plus.webp', 'rb')
+# prod1 = models.Product.objects(title='Samsung Galaxy Note 10 Plus').first()
+# prod1.photo.put(open_cart, content_type='Samsung_Galaxy_Note_10_Plus/webp')
+# prod1.save()
 
-#
+# #
 
-# Xiaomi Redmi Note 8 Pro 6/128Gb (Green)
 
-x = models.Category.objects(title='Xiaomi').first()
-prod1 = models.Product(**{'title': 'Xiaomi Redmi Note 8',
-                        'description': 'Xiaomi Redmi Note 8 64Gb Blue',
-                        'price': 29900,
-                        'category': x,
-                        # 'photo': None
-                       }).save()
 
-open_cart = open('photos/Xiaomi_Redmi_Note_8.webp', 'rb')
-prod1 = models.Product.objects(title='Xiaomi Redmi Note 8').first()
-prod1.photo.put(open_cart, content_type='Xiaomi_Redmi_Note_8/webp')
-prod1.save()
+# x = models.Category.objects(title='Xiaomi').first()
+# prod1 = models.Product(**{'title': 'Xiaomi Redmi Note 8',
+#                         'description': 'Xiaomi Redmi Note 8 64Gb Blue',
+#                         'price': 29900,
+#                         'category': x,
+#                         # 'photo': None
+#                        }).save()
 
-#
-prod1 = models.Product(**{'title': 'Xiaomi Redmi Note 8 Pro',
-                        'description': 'Xiaomi Redmi Note 8 Pro 128Gb Green',
+# open_cart = open('photos/Xiaomi_Redmi_Note_8.webp', 'rb')
+# prod1 = models.Product.objects(title='Xiaomi Redmi Note 8').first()
+# prod1.photo.put(open_cart, content_type='Xiaomi_Redmi_Note_8/webp')
+# prod1.save()
+
+# #
+# prod1 = models.Product(**{'title': 'Xiaomi Redmi Note 8 Pro',
+#                         'description': 'Xiaomi Redmi Note 8 Pro 128Gb Green',
+#                         'price': 50900,
+#                         'category': x,
+#                         # 'photo': None
+#                        }).save()
+
+# open_cart = open('photos/Xiaomi_Redmi_Note_8_Pro.webp', 'rb')
+# prod1 = models.Product.objects(title='Xiaomi Redmi Note 8 Pro').first()
+# prod1.photo.put(open_cart, content_type='Xiaomi_Redmi_Note_8_Pro/webp')
+# prod1.save()
+
+o = models.Category.objects(title='Wireless earphones').first()
+o.add_subcategory(
+    models.Category(**{'title': 'Apple',
+                            'description': 'there are airpods'})
+)
+
+
+air = models.Category.objects(title='Apple', description='there are airpods').first()
+
+prod1 = models.Product(**{'title': 'AirPods 2019',
+                        'description': 'Apple AirPods 2019 with Charging Case',
                         'price': 50900,
-                        'category': x,
+                        'category': air,
                         # 'photo': None
                        }).save()
 
-open_cart = open('photos/Xiaomi_Redmi_Note_8_Pro.webp', 'rb')
-prod1 = models.Product.objects(title='Xiaomi Redmi Note 8 Pro').first()
-prod1.photo.put(open_cart, content_type='Xiaomi_Redmi_Note_8_Pro/webp')
+open_cart = open('photos/Apple_AirPods_2019.webp', 'rb')
+prod1 = models.Product.objects(title='AirPods 2019').first()
+prod1.photo.put(open_cart, content_type='Apple_AirPods_2019/webp')
 prod1.save()
