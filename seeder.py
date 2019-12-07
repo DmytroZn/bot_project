@@ -95,15 +95,15 @@ connect('web_shop_bot')
 
 
 # obj2 = models.Category(**{'title': 'Audio', 'description': 'there are Accessories for phones'}).save()
-obj2 = models.Category.objects(title='Audio').first()
+# # obj2 = models.Category.objects(title='Audio').first()
 
-obj2.add_subcategory(
-        models.Category(**{'title': 'Earphones',
-                            'description': 'there are earphones'}))
+# obj2.add_subcategory(
+#         models.Category(**{'title': 'Earphones',
+#                             'description': 'there are earphones'}))
                 
-obj2.add_subcategory(
-        models.Category(**{'title': 'Acoustics',
-                            'description': 'there are Acoustics'}))
+# obj2.add_subcategory(
+#         models.Category(**{'title': 'Acoustics',
+#                             'description': 'there are Acoustics'}))
 
 # models.Product.objects.all().delete()
 # n = models.Category.objects(title='Apple').first()
@@ -127,4 +127,7 @@ obj2.add_subcategory(
 #                             'description': 'there are Wireless earphones'}))
 
 
+models.Category.objects(title='Earphones').all().delete()
+models.Category.objects(title='Acoustics').all().delete()
+models.Category.objects(title='Audio').all().delete()
 
