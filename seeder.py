@@ -299,18 +299,34 @@ connect('web_shop_bot')
 
 #
 
-air = models.Category.objects(title='Leading earphones').first()
+# air = models.Category.objects(title='Leading earphones').first()
 
-prod1 = models.Product(**{'title': 'Earphones JBL T110',
-                        'description': 'Earphones JBL T110 White',
-                        'price': 2500,
+# prod1 = models.Product(**{'title': 'Earphones JBL T110',
+#                         'description': 'Earphones JBL T110 White',
+#                         'price': 2500,
+#                         'category': air,
+#                         # 'photo': None
+#                        }).save()
+
+# open_cart = open('photos/Earphones_JBL_T110.webp', 'rb')
+# prod1 = models.Product.objects(title='Earphones JBL T110').first()
+# prod1.photo.put(open_cart, content_type='Earphones_JBL_T110/webp')
+# prod1.save()
+
+#
+
+
+
+air = models.Category.objects(title='Acoustics').first()
+
+prod1 = models.Product(**{'title': 'Portable speaker',
+                        'description': 'Portable speaker AIR MUSIC FLIP Orange',
+                        'price': 4700,
                         'category': air,
                         # 'photo': None
                        }).save()
 
-open_cart = open('photos/Earphones_JBL_T110.webp', 'rb')
-prod1 = models.Product.objects(title='Earphones JBL T110').first()
-prod1.photo.put(open_cart, content_type='Earphones_JBL_T110/webp')
+open_cart = open('photos/Portable_speaker.webp', 'rb')
+prod1 = models.Product.objects(title='Portable speaker').first()
+prod1.photo.put(open_cart, content_type='Portable_speaker/webp')
 prod1.save()
-
-#
