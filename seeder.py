@@ -60,23 +60,27 @@ connect('web_shop_bot')
 # c = models.Product.objects().delete()
 # c = models.Category.objects().delete()
 # c = models.Cart.objects().delete()
-c = [i.title for i in models.Category.objects().all()]
-print(c)
+# c = [i.title for i in models.Category.objects().all()]
+# print(c)
 
 
 # for i in range(5):
 #     obj = models.Category(**{'title':f'root {i}',
 #                         'description':f'descr {i}'}).save()
 
-obj1 = models.Category(**{'title': 'Audio', 'description': 'there are Accessories for phones'}).save()
 
-obj1.add_subcategory(
-        models.Category(**{'title': 'Earphones',
-                            'description': 'there are earphones'}))
+
+
+
+# obj1 = models.Category(**{'title': 'Mobile phones', 'description': 'there are mobile phones'}).save()
+
+# obj1.add_subcategory(
+#         models.Category(**{'title': 'Apple',
+#                             'description': 'there are iPhone'}))
                 
-obj1.add_subcategory(
-        models.Category(**{'title': 'Acoustics',
-                            'description': 'there are Acoustics'}))
+# obj1.add_subcategory(
+#         models.Category(**{'title': 'Meizu',
+#                             'description': 'there are Meizu'}))
                             
 # obj1.add_subcategory(
 #         models.Category(**{'title': 'Xiaomi',
@@ -84,5 +88,19 @@ obj1.add_subcategory(
                                  
 # obj1.add_subcategory(
 #         models.Category(**{'title': 'Samsung',
-#                             'description': 'there are Samsung'}))        
+#                             'description': 'there are Samsung'}))  
+# 
+
+
+
+
+obj2 = models.Category(**{'title': 'Audio', 'description': 'there are Accessories for phones'}).save()
+
+obj2.add_subcategory(
+        models.Category(**{'title': 'Earphones',
+                            'description': 'there are earphones'}))
+                
+obj2.add_subcategory(
+        models.Category(**{'title': 'Acoustics',
+                            'description': 'there are Acoustics'}))
 
