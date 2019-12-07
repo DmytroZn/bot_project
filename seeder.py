@@ -174,6 +174,7 @@ connect('web_shop_bot')
 # prod1.save()
 
 # #
+models.Product.objects(title='Meizu M5').all().delete()
 m = models.Category.objects(title='Meizu').first()
 # prod1 = models.Product(**{'title': 'Meizu 16Xs',
 #                         'description': 'Meizu 16Xs 64Gb Carbon Black',
@@ -201,17 +202,20 @@ prod1 = models.Product.objects(title='Meizu M5').first()
 prod1.photo.put(open_cart, content_type='Meizu_M5/jpg')
 prod1.save()
 
-#
-prod1 = models.Product(**{'title': 'Meizu M10',
-                        'description': 'Meizu M10 32Gb Black',
-                        'price': 10105,
-                        'category': m,
-                        # 'photo': None
-                       }).save()
+# #
+# prod1 = models.Product(**{'title': 'Meizu M10',
+#                         'description': 'Meizu M10 32Gb Black',
+#                         'price': 10105,
+#                         'category': m,
+#                         # 'photo': None
+#                        }).save()
 
-open_cart = open('photos/Meizu_M10.jpg', 'rb')
-prod1 = models.Product.objects(title='Meizu M10').first()
-prod1.photo.put(open_cart, content_type='Meizu_M10/jpg')
-prod1.save()
+# open_cart = open('photos/Meizu_M10.jpg', 'rb')
+# prod1 = models.Product.objects(title='Meizu M10').first()
+# prod1.photo.put(open_cart, content_type='Meizu_M10/jpg')
+# prod1.save()
 
 #
+
+
+
