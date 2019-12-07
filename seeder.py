@@ -105,7 +105,7 @@ connect('web_shop_bot')
 #         models.Category(**{'title': 'Acoustics',
 #                             'description': 'there are Acoustics'}))
 
-# models.Product.objects.all().delete()
+# # # models.Product.objects.all().delete()
 # n = models.Category.objects(title='Apple').first()
 # prod1 = models.Product(**{'title': 'iPhone 11',
 #                         'description': 'Apple iPhone 11 64Gb Black',
@@ -120,14 +120,69 @@ connect('web_shop_bot')
 # prod1.save()
 
 
-o = models.Category.objects(title='Earphones').first()
+# o = models.Category.objects(title='Earphones').first()
 # o.add_subcategory(
 #     models.Category(**{'title': 'Wireless earphones',
 #                             'description': 'there are Wireless earphones'})
 # )
 
-o.add_subcategory(
-    models.Category(**{'title': 'Leading earphones',
-                            'description': 'there are Leading earphones'})
-)
+# o.add_subcategory(
+#     models.Category(**{'title': 'Leading earphones',
+#                             'description': 'there are Leading earphones'})
+# )
 
+
+#
+n = models.Category.objects(title='Apple').first()
+prod1 = models.Product(**{'title': 'iPhone 7',
+                        'description': 'Apple iPhone 7 128Gb Black',
+                        'price': 40000,
+                        'category': n,
+                        # 'photo': None
+                       }).save()
+
+open_cart = open('photos/iPhone_7.webp', 'rb')
+prod1 = models.Product.objects(title='iPhone 7').first()
+prod1.photo.put(open_cart, content_type='iPhone_7/webp')
+prod1.save()
+
+#
+prod1 = models.Product(**{'title': 'iPhone 8',
+                        'description': 'Apple iPhone 8 128Gb Gold',
+                        'price': 35000,
+                        'category': n,
+                        # 'photo': None
+                       }).save()
+
+open_cart = open('photos/iPhone_8.webp', 'rb')
+prod1 = models.Product.objects(title='iPhone 8').first()
+prod1.photo.put(open_cart, content_type='iPhone_8/webp')
+prod1.save()
+
+#
+
+prod1 = models.Product(**{'title': 'iPhone X',
+                        'description': 'Apple iPhone X 64Gb Silver',
+                        'price': 35000,
+                        'category': n,
+                        # 'photo': None
+                       }).save()
+
+open_cart = open('photos/iphone_X.webp', 'rb')
+prod1 = models.Product.objects(title='iPhone X').first()
+prod1.photo.put(open_cart, content_type='iPhone_X/webp')
+prod1.save()
+
+#
+m = models.Category.objects(title='Meizu').first()
+prod1 = models.Product(**{'title': 'Meizu 16Xs',
+                        'description': 'Meizu 16Xs 64Gb Carbon Black',
+                        'price': 22500,
+                        'category': m,
+                        # 'photo': None
+                       }).save()
+
+open_cart = open('photos/Meizu_16Xs.jpg', 'rb')
+prod1 = models.Product.objects(title='Meizu 16Xs').first()
+prod1.photo.put(open_cart, content_type='Meizu_16Xs/jpg')
+prod1.save()
