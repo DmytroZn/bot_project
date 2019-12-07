@@ -118,7 +118,7 @@ connect('web_shop_bot')
 # prod1.photo.put(open_cart, content_type='iPhone_7/webp')
 # prod1.save()
 
-cat = models.Category.objects(title='Earphones').first()
+cat = models.Category.objects(title='Earphones', description='there are earphones').first()
 
 
 cat.add_subcategory(
