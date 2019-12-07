@@ -69,7 +69,7 @@ connect('web_shop_bot')
 #                         'description':f'descr {i}'}).save()
 
 
-
+############################
 
 
 # obj1 = models.Category(**{'title': 'Mobile phones', 'description': 'there are mobile phones'}).save()
@@ -105,20 +105,19 @@ connect('web_shop_bot')
 #                             'description': 'there are Acoustics'}))
 
 
-# n = models.Category.objects(title='Apple').first()
-# prod1 = models.Product(**{'title': 'iPhone 11',
-#                         'description': 'Apple iPhone 11 64Gb Black',
-#                         'price': 300,
-#                         'category': n,
-#                         # 'photo': None
-#                        }).save()
+n = models.Category.objects(title='Apple').first()
+prod1 = models.Product(**{'title': 'iPhone 11',
+                        'description': 'Apple iPhone 11 64Gb Black',
+                        'price': 300,
+                        'category': n,
+                        # 'photo': None
+                       }).save()
 
-# open_cart = open('photos/iPhone_11.webp', 'rb')
-# prod1 = models.Product.objects(title='iPhone 11').first()
-# prod1.photo.put(open_cart, content_type='iPhone_7/webp')
-# prod1.save()
+open_cart = open('photos/iPhone_11.webp', 'rb')
+prod1 = models.Product.objects(title='iPhone 11').first()
+prod1.photo.put(open_cart, content_type='iPhone_7/webp')
+prod1.save()
 
-models.Category.objects(title='Audio').first().delete()
-models.Category.objects(title='Audio').first().delete()
+
 
 
