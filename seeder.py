@@ -118,12 +118,12 @@ connect('web_shop_bot')
 # prod1.photo.put(open_cart, content_type='iPhone_7/webp')
 # prod1.save()
 
-# cat = models.Category.objects(title='Earphones').first()
+cat = models.Category.objects(title='Earphones').first()
 
 
-# cat.add_subcategory(
-#         models.Category(**{'title': 'Wireless earphones',
-#                             'description': 'there are Wireless earphones'}))
+cat.add_subcategory(
+        models.Category(**{'title': 'Wireless earphones',
+                            'description': 'there are Wireless earphones'}))
 
 
-models.Cart.objects().delete()
+
