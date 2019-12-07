@@ -94,16 +94,16 @@ connect('web_shop_bot')
 
 
 
-obj2 = models.Category(**{'title': 'Audio', 'description': 'there are Accessories for phones'}).save()
-# # obj2 = models.Category.objects(title='Audio').first()
+# obj2 = models.Category(**{'title': 'Audio', 'description': 'there are Accessories for phones'}).save()
+# # # obj2 = models.Category.objects(title='Audio').first()
 
-obj2.add_subcategory(
-        models.Category(**{'title': 'Earphones',
-                            'description': 'there are earphones'}))
+# obj2.add_subcategory(
+#         models.Category(**{'title': 'Earphones',
+#                             'description': 'there are earphones'}))
                 
-obj2.add_subcategory(
-        models.Category(**{'title': 'Acoustics',
-                            'description': 'there are Acoustics'}))
+# obj2.add_subcategory(
+#         models.Category(**{'title': 'Acoustics',
+#                             'description': 'there are Acoustics'}))
 
 # models.Product.objects.all().delete()
 # n = models.Category.objects(title='Apple').first()
@@ -119,15 +119,15 @@ obj2.add_subcategory(
 # prod1.photo.put(open_cart, content_type='iPhone_7/webp')
 # prod1.save()
 
-# cat = models.Category.objects(title='Earphones', description='there are earphones').first()
-
-
-# cat.add_subcategory(
-#         models.Category(**{'title': 'Wireless earphones',
-#                             'description': 'there are Wireless earphones'}))
 
 o = models.Category.objects(title='Earphones').first()
+# o.add_subcategory(
+#     models.Category(**{'title': 'Wireless earphones',
+#                             'description': 'there are Wireless earphones'})
+# )
+
 o.add_subcategory(
-    models.Category(**{'title': 'Wireless earphones',
-                            'description': 'there are Wireless earphones'})
+    models.Category(**{'title': 'Leading earphones',
+                            'description': 'there are Leading earphones'})
 )
+
