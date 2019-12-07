@@ -105,8 +105,8 @@ def say_cart(message):
     
 
 
-@bot.callback_query_handler(func=lambda call: call.data == 'testing')
-def sow(call):
+# @bot.callback_query_handler(func=lambda call: call.data == 'testing')
+# def sow(call):
 
 
     # cart = models.Testing(**{'name': 'Dima', 'last_name':'Znak'}).save()
@@ -381,7 +381,7 @@ if __name__ == '__main__':
     time.sleep(1)
     bot.set_webhook(config.webhook_url,
                                 certificate=open('webhook_cert.pem', 'r'))
-    app.run(port=1516, debug=True)
+    app.run(port=1515, debug=True)
 
 
 
