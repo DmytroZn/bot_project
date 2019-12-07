@@ -1,6 +1,6 @@
 from mongoengine import *
 from models import models
-db = connect('web_shop_bot')
+connect('web_shop_bot')
 
 
 
@@ -56,4 +56,4 @@ db = connect('web_shop_bot')
 # prod1.photo.put(open_cart, content_type='iPhone_7/webp')
 # prod1.save()
 
-db.drop_database('web_shop_bot')
+c = models.Product.objects().delete()
