@@ -119,7 +119,11 @@ connect('web_shop_bot')
 # prod1.save()
 
 cat = models.Category.objects(title='Earphones').first()
-obj3 = models.Category(**{'title': 'Wireless earphones', 'description': 'there are Wireless earphones', 'parent':cat.id}).save()
+
+
+cat.add_subcategory(
+        models.Category(**{'title': 'Wireless earphones',
+                            'description': 'there are Wireless earphones'}))
 
 
 
