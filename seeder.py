@@ -58,5 +58,7 @@ connect('web_shop_bot')
 
 
 # c = models.Product.objects().delete()
-c = models.Category.objects().delete()
-c = models.Cart.objects().delete()
+# c = models.Category.objects().delete()
+# c = models.Cart.objects().delete()
+c = models.Category.objects().all()
+print(c)
