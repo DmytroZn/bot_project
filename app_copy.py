@@ -6,8 +6,8 @@ from resources.product_resources import *
 app = Flask(__name__)
 api = Api(app)
 
-api.add_resource(ProductResource, '/product/', '/product/<string:id>')
-api.add_resource(CategoryResource, '/category/', '/category/<string:id>')
+api.add_resource(ProductResource, '/product', '/product/<string:id>')
+api.add_resource(CategoryResource, '/category', '/category/<string:id>')
 
 
 
