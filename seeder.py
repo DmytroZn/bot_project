@@ -174,8 +174,7 @@ connect('web_shop_bot')
 # prod1.save()
 
 # #
-models.Product.objects(title='Meizu M5').all().delete()
-m = models.Category.objects(title='Meizu').first()
+# m = models.Category.objects(title='Meizu').first()
 # prod1 = models.Product(**{'title': 'Meizu 16Xs',
 #                         'description': 'Meizu 16Xs 64Gb Carbon Black',
 #                         'price': 22500,
@@ -190,17 +189,17 @@ m = models.Category.objects(title='Meizu').first()
 #
 
 
-prod1 = models.Product(**{'title': 'Meizu M5',
-                        'description': 'Meizu M5 16GB White',
-                        'price': 15700,
-                        'category': m,
-                        # 'photo': None
-                       }).save()
+# prod1 = models.Product(**{'title': 'Meizu M5',
+#                         'description': 'Meizu M5 16GB White',
+#                         'price': 15700,
+#                         'category': m,
+#                         # 'photo': None
+#                        }).save()
 
-open_cart = open('photos/Meizu_M5.jpg', 'rb')
-prod1 = models.Product.objects(title='Meizu M5').first()
-prod1.photo.put(open_cart, content_type='Meizu_M5/jpg')
-prod1.save()
+# open_cart = open('photos/Meizu_M5.jpg', 'rb')
+# prod1 = models.Product.objects(title='Meizu M5').first()
+# prod1.photo.put(open_cart, content_type='Meizu_M5/jpg')
+# prod1.save()
 
 # #
 # prod1 = models.Product(**{'title': 'Meizu M10',
@@ -219,3 +218,63 @@ prod1.save()
 
 
 
+
+
+#
+
+s = models.Category.objects(title='Samsung').first()
+prod1 = models.Product(**{'title': 'Samsung Galaxy A50',
+                        'description': 'Samsung Galaxy A50 2019 64Gb White',
+                        'price': 45865,
+                        'category': s,
+                        # 'photo': None
+                       }).save()
+
+open_cart = open('photos/Samsung_Galaxy_A50.webp', 'rb')
+prod1 = models.Product.objects(title='Samsung Galaxy A50').first()
+prod1.photo.put(open_cart, content_type='Samsung_Galaxy_A50/webp')
+prod1.save()
+
+#
+
+prod1 = models.Product(**{'title': 'Samsung Galaxy Note 10 Plus',
+                        'description': 'Samsung Galaxy Note 10 Plus 2019 256Gb Aura Black',
+                        'price': 45000,
+                        'category': s,
+                        # 'photo': None
+                       }).save()
+
+open_cart = open('photos/Samsung_Galaxy_Note_10_Plus.webp', 'rb')
+prod1 = models.Product.objects(title='Samsung Galaxy Note 10 Plus').first()
+prod1.photo.put(open_cart, content_type='Samsung_Galaxy_Note_10_Plus/webp')
+prod1.save()
+
+#
+
+# Xiaomi Redmi Note 8 Pro 6/128Gb (Green)
+
+x = models.Category.objects(title='Xiaomi').first()
+prod1 = models.Product(**{'title': 'Xiaomi Redmi Note 8',
+                        'description': 'Xiaomi Redmi Note 8 64Gb Blue',
+                        'price': 29900,
+                        'category': x,
+                        # 'photo': None
+                       }).save()
+
+open_cart = open('photos/Xiaomi_Redmi_Note_8.webp', 'rb')
+prod1 = models.Product.objects(title='Xiaomi Redmi Note 8').first()
+prod1.photo.put(open_cart, content_type='Xiaomi_Redmi_Note_8/webp')
+prod1.save()
+
+#
+prod1 = models.Product(**{'title': 'Xiaomi Redmi Note 8 Pro',
+                        'description': 'Xiaomi Redmi Note 8 Pro 128Gb Green',
+                        'price': 50900,
+                        'category': x,
+                        # 'photo': None
+                       }).save()
+
+open_cart = open('photos/Xiaomi_Redmi_Note_8_Pro.webp', 'rb')
+prod1 = models.Product.objects(title='Xiaomi Redmi Note 8 Pro').first()
+prod1.photo.put(open_cart, content_type='Xiaomi_Redmi_Note_8_Pro/webp')
+prod1.save()
