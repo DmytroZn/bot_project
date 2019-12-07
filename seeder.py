@@ -276,23 +276,41 @@ connect('web_shop_bot')
 # prod1.photo.put(open_cart, content_type='Xiaomi_Redmi_Note_8_Pro/webp')
 # prod1.save()
 
-o = models.Category.objects(title='Wireless earphones').first()
-o.add_subcategory(
-    models.Category(**{'title': 'Apple',
-                            'description': 'there are airpods'})
-)
+# o = models.Category.objects(title='Wireless earphones').first()
+# o.add_subcategory(
+#     models.Category(**{'title': 'Apple',
+#                             'description': 'there are airpods'})
+# )
 
 
-air = models.Category.objects(title='Apple', description='there are airpods').first()
+# air = models.Category.objects(title='Apple', description='there are airpods').first()
 
-prod1 = models.Product(**{'title': 'AirPods 2019',
-                        'description': 'Apple AirPods 2019 with Charging Case',
-                        'price': 50900,
+# prod1 = models.Product(**{'title': 'AirPods 2019',
+#                         'description': 'Apple AirPods 2019 with Charging Case',
+#                         'price': 50900,
+#                         'category': air,
+#                         # 'photo': None
+#                        }).save()
+
+# open_cart = open('photos/Apple_AirPods_2019.webp', 'rb')
+# prod1 = models.Product.objects(title='AirPods 2019').first()
+# prod1.photo.put(open_cart, content_type='Apple_AirPods_2019/webp')
+# prod1.save()
+
+#
+
+air = models.Category.objects(title='Leading earphones').first()
+
+prod1 = models.Product(**{'title': 'Earphones JBL T110',
+                        'description': 'Earphones JBL T110 White',
+                        'price': 2500,
                         'category': air,
                         # 'photo': None
                        }).save()
 
-open_cart = open('photos/Apple_AirPods_2019.webp', 'rb')
-prod1 = models.Product.objects(title='AirPods 2019').first()
-prod1.photo.put(open_cart, content_type='Apple_AirPods_2019/webp')
+open_cart = open('photos/Earphones_JBL_T110.webp', 'rb')
+prod1 = models.Product.objects(title='Earphones JBL T110').first()
+prod1.photo.put(open_cart, content_type='Earphones_JBL_T110/webp')
 prod1.save()
+
+#
