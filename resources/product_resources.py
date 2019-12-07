@@ -29,11 +29,8 @@ class ProductResource(Resource):
         obj = Product.objects(id=id).get().delete()
         obj = Product(**request.json).save()
         # obj.update(**request.json)
- 
         return ProductSchema().dump(obj)
         # return jsonify(**{'method': 'put'})
-
-
 
     # def put(self, id):
     #     obj = Product.objects(id=id).get()
@@ -46,8 +43,6 @@ class ProductResource(Resource):
     def delete(self, id):
         Product.objects(id=id).delete()
         # return jsonify(**{'method': 'delete'})
-
-
 
 
 class CategoryResource(Resource):
