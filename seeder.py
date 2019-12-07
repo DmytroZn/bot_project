@@ -127,7 +127,10 @@ connect('web_shop_bot')
 #                             'description': 'there are Wireless earphones'}))
 
 
-models.Category.objects(title='Earphones').all().delete()
-models.Category.objects(title='Acoustics').all().delete()
-models.Category.objects(title='Audio').all().delete()
+# # models.Category.objects(title='Earphones').all().delete()
+# # models.Category.objects(title='Acoustics').all().delete()
+# # models.Category.objects(title='Audio').all().delete()
+i = models.Category.objects().all()
 
+for k in i:
+    print(k.title)
