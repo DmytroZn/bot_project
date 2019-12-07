@@ -56,4 +56,5 @@ connect('web_shop_bot')
 # prod1.photo.put(open_cart, content_type='iPhone_7/webp')
 # prod1.save()
 
-c = models.Product.objects().delete()
+# c = models.Product.objects().delete()
+print('ge')
