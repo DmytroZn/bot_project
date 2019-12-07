@@ -104,7 +104,7 @@ connect('web_shop_bot')
 #         models.Category(**{'title': 'Acoustics',
 #                             'description': 'there are Acoustics'}))
 
-models.Product.objects.all.delete()
+models.Product.objects.all().delete()
 n = models.Category.objects(title='Apple').first()
 prod1 = models.Product(**{'title': 'iPhone 11',
                         'description': 'Apple iPhone 11 64Gb Black',
