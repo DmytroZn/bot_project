@@ -118,7 +118,7 @@ connect('web_shop_bot')
 # prod1.photo.put(open_cart, content_type='iPhone_7/webp')
 # prod1.save()
 
-models.chunks.objects().delete()
+models.fs.objects().delete()
 models.fs.files.objects().delete()
 print('ok')
 
