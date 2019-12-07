@@ -13,7 +13,7 @@ from models import models
 from keyboards import ReplyKB
 
 from flask_restful import Api
-from resources.product_resources
+from resources.product_resources import *
 
 
 
