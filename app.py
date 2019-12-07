@@ -16,7 +16,6 @@ from flask_restful import Api
 from resources.product_resources import *
 
 
-
 bot = telebot.TeleBot(config.TOKEN)
 app = Flask(__name__)
 
@@ -31,6 +30,7 @@ def webhook():
         return ''
     else:
         abort(403)
+
 
 @bot.message_handler(commands=['start'])
 def start(message):
@@ -48,7 +48,6 @@ def start(message):
             'last_name' : dict_of_user.last_name
             }).save()
     
-    
     greeting_str = f'Hello {dict_of_user.first_name} {dict_of_user.last_name}'
     keyboard = ReplyKB().generate_kb(*keyboards.beginning_kb.values())
     bot.send_message(message.chat.id, greeting_str, reply_markup=keyboard)
@@ -60,21 +59,16 @@ def start(message):
         cart_user = models.Cart(**{'user':real_user_id}).save()
     else:
         pass
-    
-        # cart_user = models.Cart.objects(user=user_id, active=True).first()
-        # cart_user.update(push__products=message.data[12:])
 
 
 @bot.message_handler(func=lambda message: message.text == keyboards.beginning_kb['news'])
 def say_news(message):
     # prod = models.Product.objects(category='5dcfe1badcd794512cc89b03')
-
     # inlin = InlineKeyboardMarkup()
     # in1 = InlineKeyboardButton(text='test1', callback_data='testing')
     # inlin.add(in1)
     # bot.send_photo(message.chat.id, 'https://images8.alphacoders.com/953/thumb-1920-953503.jpg', caption='po', reply_markup=inlin)
-
-    bot.send_message(message.chat.id, 'We created this bot 23.11.2019', reply_markup=inlin)
+    bot.send_message(message.chat.id, 'We created this bot 23.11.2019')
 
 
 @bot.message_handler(func=lambda message: message.text == keyboards.beginning_kb['sales'])
@@ -85,6 +79,7 @@ def say_sales(message):
 
 @bot.message_handler(func=lambda message: message.text == keyboards.beginning_kb['about'])
 def say_about(message):
+
     text = '''
     This is bot-shop. 
     You can see products, choice products from categories and add products to your cart also buy.
@@ -95,16 +90,14 @@ def say_about(message):
 
 @bot.message_handler(func=lambda message: message.text == keyboards.beginning_kb['cart'])
 def say_cart(message):
-    cat = models.Category.objects().first()
 
+    cat = models.Category.objects().first()
     keyboard = InlineKeyboardMarkup()
     button = InlineKeyboardButton(text='My cart', callback_data=f'look my cart_{cat.id}')
     keyboard.add(button)
     bot.send_message(message.chat.id, text='Open cart', reply_markup=keyboard)
 
     
-
-
 @bot.message_handler(func=lambda message: message.text == keyboards.beginning_kb['history'])
 def say_history(message):
     dict_of_user = message.from_user
@@ -128,7 +121,6 @@ def say_history(message):
 def show_categories(message):
         
     kb = keyboards.InlineKB(key='root', lookup_field='id', named_arg='category')
-
     bot.send_message(message.chat.id, 'Chooce category', reply_markup=kb.generate_kb())
 
 
@@ -153,8 +145,6 @@ def show_products_or_sub_category(call):
         kb.generate_kb()
         kb.add(InlineKeyboardButton(text=f'<< {category.title}',
                             callback_data=f'back_{category.id}'))
-     
-
         bot.delete_message(chat_id=call.message.chat.id,
                             message_id=call.message.message_id)
         bot.send_message(text=category.title, chat_id=call.message.chat.id,reply_markup=kb)
@@ -202,9 +192,6 @@ def show_prod(call):
     text = f"""<b>{product.title}</b>\n {product.description} \n {product.get_price_str} USD \n """
     photo = product.photo.read()
     bot.send_photo(call.message.chat.id, photo, caption=text, parse_mode='HTML', reply_markup=keyboard)
-
-
-    
     # bot.edit_message_text(text=f"""{product.title}\n {product.description} \n {product.get_price} USD \n """, chat_id=call.message.chat.id,
     #                         message_id=call.message.message_id, reply_markup=keyboard)
 
@@ -231,16 +218,13 @@ def add_to_cart(call):
 def look_my_cart(call):
 
     user_id = models.User.objects(id_user=str(call.from_user.id)).first()
-    print(f'user_id {user_id.id}')
-    
-    
+    print(f'user_id {user_id.id}')   
     if not models.Cart.objects(user=user_id, active=True):
         cart_user = models.Cart(**{'user':user_id.id}).save()
     else:
         cart_user = models.Cart.objects(user=user_id.id, active=True).first()
         print(f'cart_user {cart_user}')
-
-    print(20000000)
+    print(200)
     try:
         num1 = models.Product.objects(id=call.data.split('_')[2]).first()
         num = cart_user.products.index(num1)
@@ -288,6 +272,7 @@ def look_my_cart(call):
 
 @bot.callback_query_handler(func=lambda call: call.data.split('_')[0] == 'buy')
 def buy_product(call):
+
     keyboard = InlineKeyboardMarkup()
     back = InlineKeyboardButton(text='<< back', callback_data=f'look my cart_{call.data.split("_")[1]}')
     keyboard.add(back)
@@ -330,10 +315,6 @@ def go_back(call):
     # bot.edit_message_text(text=text, chat_id=call.message.chat.id,
     #                     message_id=call.message.message_id,
     #                     reply_markup=kb)
-
-
-
-
 
 
 # wsgi
