@@ -78,7 +78,7 @@ obj1.add_subcategory(
         models.Category(**{'title': 'Acoustics',
                             'description': 'there are Acoustics'}))
                             
-obj1.add_subcategory(
+# obj1.add_subcategory(
 #         models.Category(**{'title': 'Xiaomi',
 #                             'description': 'there are Xiaomi'}))    
                                  
