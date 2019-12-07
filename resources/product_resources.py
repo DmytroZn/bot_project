@@ -9,6 +9,7 @@ from models import *
 class ProductResource(Resource):
 
     def get(self, id=None):
+        print('200 - 80')
         if not id:
             objects = Product.objects
             return ProductSchema().dump(objects, many=True)
