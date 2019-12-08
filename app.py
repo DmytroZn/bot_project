@@ -84,7 +84,7 @@ def say_about(message):
     This is bot-shop. 
     You can see products, choice products from categories and add products to your cart also buy.
     
-    If you want have similar bot like this you can write to email: dmytro.zn@gmail.com'''
+    If you want to have similar bot like this you can write to email: dmytro.zn@gmail.com'''
     bot.send_message(message.chat.id, text)
 
 
