@@ -331,11 +331,11 @@ connect('web_shop_bot')
 # prod1.photo.put(open_cart, content_type='Portable_speaker/webp')
 # prod1.save()
 i = models.User.objects().all()
-print([k.first_name for k in i])
-print([k.id_user for k in i])
+print(f'first_name {[k.first_name for k in i]}')
+print(f'id_user {[k.id_user for k in i]}')
 
 
-print([k.username for k in i])
+print("username {[k.username for k in i]}")
 
-u = models.Cart.objects().all()
-print([i.user.first_name for i in u])
+u = models.Cart.objects(active=False).all()
+print("cart {[i.user.first_name for i in u]}")
