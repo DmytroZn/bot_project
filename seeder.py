@@ -335,7 +335,7 @@ print(f'first_name {[k.first_name for k in i]}')
 print(f'id_user {[k.id_user for k in i]}')
 
 
-print("username {[k.username for k in i]}")
+print(f"username {[k.username for k in i]}")
 
 u = models.Cart.objects(active=False).all()
-print("cart {[i.user.first_name for i in u]}")
+print(f"cart {[i.user.first_name for i in u]}")
